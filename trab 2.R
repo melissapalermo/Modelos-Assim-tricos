@@ -1,6 +1,8 @@
 #enunciado https://www.dropbox.com/s/od9cca5oo9q4o0b/Trabalho%202.pdf?dl=0
 
 library(sn)
+set.seed(2016) #para gerar os mesmo valores sempre
+
 #1 a) gerar 100 uniforme [a,b]. a=1, b=0
 
 x=runif(100, -2,2)
@@ -16,7 +18,7 @@ for(i in 2:15){
 
 j=rep(1:100)
 
-#1d) amostra aleatória
+#1d) amostra aleatória sn
 
 n = 100
 beta0 = -1
@@ -33,3 +35,9 @@ for(i in 1:n){
   e[i] = rsn(1,-sqrt(2/pi)*nu,sigma2,lambda)
   y[i] = beta0 + beta1*x[i] + e[i]
 }
+
+#1e) contaminar 3 obs
+
+d = sample(1:100, 3, replace=FALSE, prob=NULL) #escolher aleatoriamente as amostras contaminadas
+c = (1+(v/100))*y[d] #contaminações
+
