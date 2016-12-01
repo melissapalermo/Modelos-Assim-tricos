@@ -60,3 +60,5 @@ for(i in 1:15){
 }
 
 dados=matrix(data = matrix, nrow = 15, ncol = 100) #cada linha da matriz é amostra y  pra um valor de v
+
+
