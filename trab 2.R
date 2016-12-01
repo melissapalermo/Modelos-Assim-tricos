@@ -40,12 +40,23 @@ for(i in 1:n){
 
 d = sample(1:100, 3, replace=FALSE, prob=NULL) #escolher aleatoriamente as amostras contaminadas
 
-#for(i in 1:15){
- # c[i] = (1+(v[i]/100))*y[d[1]] #contaminações  
-#}
+c1=(1+(v[1]/100))*y[d] #contaminação para v=10
+y[d]=c1 #trocar as obs por contaminação
 
-c=(1+(v/100))*y[d] #contaminação
+c=NULL
+for(i in 1:15){
+  c=c(c,(1+(v[i]/100))*y[d])
+  
+}
 
-y[d]=c #trocar as obs por contaminação
+c = matrix(data = c, nrow = 15, ncol = 3) #cada linha da matriz é pra um valor de v
 
+matrix=NULL
 
+for(i in 1:15){
+  y[d]=c[i]
+  ynovo=y
+  matrix=c(matrix, ynovo)
+}
+
+dados=matrix(data = matrix, nrow = 15, ncol = 100) #cada linha da matriz é amostra y  pra um valor de v
