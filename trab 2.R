@@ -39,5 +39,11 @@ for(i in 1:n){
 #1e) contaminar 3 obs
 
 d = sample(1:100, 3, replace=FALSE, prob=NULL) #escolher aleatoriamente as amostras contaminadas
-c = (1+(v/100))*y[d] #contaminações
+
+for(i in 1:15){
+  c[i] = (1+(v[i]/100))*y[d[1]] #contaminações  
+}
+
+
+
 
