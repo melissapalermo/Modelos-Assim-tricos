@@ -15,7 +15,7 @@ v[1]=10
 for(i in 2:15){
   v[i]=v[i-1]+10
 }
-
+########################SKEW NORMAL########################################################
 vetaic=NULL
 vetbic=NULL
 vetbeta1=NULL
@@ -25,6 +25,9 @@ vetaicy=NULL
 vetbicy=NULL
 vetbeta1y=NULL
 vetbeta2y=NULL
+
+rcb1=NULL
+rcb2=NULL
 
 for(j in 1:100){
   
@@ -50,33 +53,31 @@ for(j in 1:100){
   vetbeta1y=c(vetbeta1y,fity$betas[1] )
   vetbeta2y=c(vetbeta2y,fity$betas[2] )
   
+  rcb1=c(rcb1, abs((fity$betas[1]-fit$betas[1])/fity$betas[1])*100)
+  rcb2=c(rcb2, abs((fity$betas[2]-fit$betas[2])/fity$betas[2])*100)
   
   
 }
 
-maic=mean(vetaic)
+lambda10 =c(mean(vetaic), mean(vetbic), mean(vetaicy), mean(vetbicy), mean(rcb2), mean(rcb1))
 
 
-betas=c(2,5)
+######################################################################################
 
-x<- runif(100,-7,7)
-
-SkewNormal <- function(n, sigma2, lambda){
-  delta <- lambda / sqrt(1 + lambda^2)
-  deltag<-sqrt(sigma2)*delta
-  mu<--sqrt(2/pi)*deltag
-  y <- mu*rep(1,n) + sqrt(sigma2)*(delta*abs(rnorm(n)) +(1 - delta^2)^(1/2)*rnorm(n))
-  return(y)}
-
-v=NULL
-v[1]=10
-for(i in 2:15){
-  v[i]=v[i-1]+10
-}
+####################SKEW T#################################################
 
 vetaic=NULL
 vetbic=NULL
-vetbetas=NULL
+vetbeta1=NULL
+vetbeta2=NULL
+
+vetaicy=NULL
+vetbicy=NULL
+vetbeta1y=NULL
+vetbeta2y=NULL
+
+rcb1=NULL
+rcb2=NULL
 
 for(j in 1:100){
   
@@ -88,13 +89,28 @@ for(j in 1:100){
   ynovo[d]=c
   fit=smsn.nl(y=ynovo,x=x,betas=c(1.5,2.5), 
               sigma2=.25,shape =.75, nlf = function(x, betas){betas[1]+betas[2]*x}, 
-              criteria = TRUE,family = "Skew.t",iter.max = 300, nu=.35)
+              criteria = TRUE,family = "Skew.t",iter.max = 300, nu=2.6)
+  fity=smsn.nl(y=y,x=x,betas=c(1.5,2.5), 
+               sigma2=.25,shape =.75, nlf = function(x, betas){betas[1]+betas[2]*x}, 
+               criteria = TRUE,family = "Skew.t",iter.max = 300, nu=2.6)
   vetaic=c(vetaic,fit$AIC )
   vetbic=c(vetbic,fit$BIC )
-  vetbetas=c(vetbetas,fit$betas )
+  vetbeta1=c(vetbeta1,fit$betas[1] )
+  vetbeta2=c(vetbeta2,fit$betas[2] )
+  
+  vetaicy=c(vetaicy,fity$AIC )
+  vetbicy=c(vetbicy,fity$BIC )
+  vetbeta1y=c(vetbeta1y,fity$betas[1] )
+  vetbeta2y=c(vetbeta2y,fity$betas[2] )
+  
+  rcb1=c(rcb1, abs((fity$betas[1]-fit$betas[1])/fity$betas[1])*100)
+  rcb2=c(rcb2, abs((fity$betas[2]-fit$betas[2])/fity$betas[2])*100)
+  
   
 }
 
-maic=mean(vetaic)
+lambda10 =c(mean(vetaic), mean(vetbic), mean(vetaicy), mean(vetbicy), mean(rcb2), mean(rcb1))
 
->>>>>>> origin/master
+
+
+
