@@ -36,15 +36,15 @@ Lambda = function(i){
   e<-SkewNormal(100, 0.5, 1.5)
   y= betas[1]+betas[2]*x+e
   d=sample(1:100, 3, replace=FALSE, prob=NULL)
-  c=(1+(v[3]/100))*y[d]
+  c=(1+(v[i]/100))*y[d]
   ynovo=y
   ynovo[d]=c
   fit=smsn.nl(y=ynovo,x=x,betas=c(1.5,2.5), 
               sigma2=.25,shape =.75, nlf = function(x, betas){betas[1]+betas[2]*x}, 
-              criteria = TRUE,family = "Skew.normal",iter.max = 300000)
+              criteria = TRUE,family = "Skew.normal",iter.max = 300)
   fity=smsn.nl(y=y,x=x,betas=c(1.5,2.5), 
               sigma2=.25,shape =.75, nlf = function(x, betas){betas[1]+betas[2]*x}, 
-              criteria = TRUE,family = "Skew.normal",iter.max = 300000)
+              criteria = TRUE,family = "Skew.normal",iter.max = 300)
   vetaic=c(vetaic,fit$AIC )
   vetbic=c(vetbic,fit$BIC )
   vetbeta1=c(vetbeta1,fit$betas[1] )
