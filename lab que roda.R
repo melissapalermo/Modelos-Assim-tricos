@@ -306,10 +306,10 @@ Lambda = function(i){
     ynovo[d]=c
     fit=smsn.nl(y=ynovo,x=x,betas=c(1.5,2.5), 
                 sigma2=.25,shape =.75, nlf = function(x, betas){betas[1]+betas[2]*x}, 
-                criteria = TRUE,family = "Skew.cn",iter.max = 300, nu=c(0.1,0.1))
+                criteria = TRUE,family = "Skew.cn",iter.max = 300, nu=c(0.2,0.1))
     fity=smsn.nl(y=y,x=x,betas=c(1.5,2.5), 
                  sigma2=.25,shape =.75, nlf = function(x, betas){betas[1]+betas[2]*x}, 
-                 criteria = TRUE,family = "Skew.cn",iter.max = 300, nu=c(0.1,0.1))
+                 criteria = TRUE,family = "Skew.cn",iter.max = 300, nu=c(0.2,0.1))
     vetaic=c(vetaic,fit$AIC )
     vetbic=c(vetbic,fit$BIC )
     vetbeta1=c(vetbeta1,fit$betas[1] )
