@@ -276,9 +276,9 @@ RC_b2=c(vet1[6], vet2[6], vet3[6], vet4[6], vet5[6], vet6[6], vet7[6], vet8[6]
         , vet9[6], vet10[6], vet11[6], vet12[6], vet13[6], vet14[6], vet15[6])
 
 plot(v,aic, ylab="AIC sem contaminação", xlab="Lambda", main="AIC's Skew t")
-plot(v,Bic, ylab="BIC sem contaminação", xlab="Lambda", main="BIC's Skew t")
+plot(v,bic, ylab="BIC sem contaminação", xlab="Lambda", main="BIC's Skew t")
 plot(v,aic_c, ylab="AIC com contaminação", xlab="Lambda", main="AIC's Skew t")
-plot(v,bic_b, ylab="BIC com contaminação", xlab="Lambda", main="BIC's Skew t")
+plot(v,bic_c, ylab="BIC com contaminação", xlab="Lambda", main="BIC's Skew t")
 
 ################################################################################
 #######################SNC########################################
