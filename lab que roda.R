@@ -346,24 +346,19 @@ vet13=Lambda(13)
 vet14=Lambda(14)
 vet15=Lambda(15)
 
-aic=c(vet1[1], vet2[1], vet3[1], vet4[1], vet5[1], vet6[1], vet7[1], vet8[1]
-      , vet9[1], vet10[1], vet11[1], vet12[1], vet13[1], vet14[1], vet15[1])
+aic=c(vet1[1], vet2[1], vet3[1], vet4[1], vet5[1], vet6[1])
 
-bic=c(vet1[2], vet2[2], vet3[2], vet4[2], vet5[2], vet6[2], vet7[2], vet8[2]
-      , vet9[2], vet10[2], vet11[2], vet12[2], vet13[2], vet14[2], vet15[2])
+bic=c(vet1[2], vet2[2], vet3[2], vet4[2], vet5[2], vet6[2])
 
-aic_c=c(vet1[3], vet2[3], vet3[3], vet4[3], vet5[3], vet6[3], vet7[3], vet8[3]
-        , vet9[3], vet10[3], vet11[3], vet12[3], vet13[3], vet14[3], vet15[3])
+aic_c=c(vet1[3], vet2[3], vet3[3], vet4[3], vet5[3], vet6[3])
 
-bic_c=c(vet1[4], vet2[4], vet3[4], vet4[4], vet5[4], vet6[4], vet7[4], vet8[4]
-        , vet9[4], vet10[4], vet11[4], vet12[4], vet13[4], vet14[4], vet15[4])
+bic_c=c(vet1[4], vet2[4], vet3[4], vet4[4], vet5[4], vet6[4])
 
-RC_b1=c(vet1[5], vet2[5], vet3[5], vet4[5], vet5[5], vet6[5], vet7[5], vet8[5]
-        , vet9[5], vet10[5], vet11[5], vet12[5], vet13[5], vet14[5], vet15[5])
+RC_b1=c(vet1[5], vet2[5], vet3[5], vet4[5], vet5[5], vet6[5])
 
-RC_b2=c(vet1[6], vet2[6], vet3[6], vet4[6], vet5[6], vet6[6], vet7[6], vet8[6]
-        , vet9[6], vet10[6], vet11[6], vet12[6], vet13[6], vet14[6], vet15[6])
+RC_b2=c(vet1[6], vet2[6], vet3[6], vet4[6], vet5[6], vet6[6])
 
+v=c(10, 20, 30, 40, 50, 60)
 plot(v,aic, ylab="AIC sem contaminação", xlab="Lambda", main="AIC's Skew CN")
 plot(v,bic, ylab="BIC sem contaminação", xlab="Lambda", main="BIC's Skew CN")
 plot(v,aic_c, ylab="AIC com contaminação", xlab="Lambda", main="AIC's Skew CN")
